@@ -10,33 +10,8 @@ df = sqlContext.read.format('com.databricks.spark.csv')\
     .option('mode', 'DROPMALFORMED')\
     .load('/mnt/calvindudek/apollo/fake_apollo.csv')
 
-# COMMAND ----------
-
 df.printSchema()
-
-# COMMAND ----------
-
 df.registerTempTable("apollo")
-
-# COMMAND ----------
-
-Source_cli_hashed ? phone number (string)
-Masked_nino_hashed ? NIN (string)
-Year_of_birth ? integer
-Median_chargedur ? Median duration of chargeable portion of the call (float)
-Median_time_to_ans ? Median time to answer the call (float)
-Median_actual_call_dur ? Median duration of the call (float)
-Current_benefit_number ? Total number of benefits claimant is currently on (integer)
-Current_benefit_type ? All benefits claimant is currently on (string with each benefit separated by a space)
-Past_benefit_number ? Total number of benefits claimant has been on (integer)
-Past_benefit_type ? All benefits claimant has been on in the past (string with each benefit separated by a space)
-Call_frequency ? integer
-Time_since_last_call_days ? Number of days since last call (integer)
-Number_services_called ? Number of services called by the claimant during the call monitoring period (integer)
-Services_called ? Services called by the claimant during the call monitoring period (string with each service separated by a space)
-Time_on_benefits_days ? Total time prior to phonecall claimant has been on benefits (integer)
-
-# COMMAND ----------
 
 training_data = sqlContext.sql("""
 SELECT
